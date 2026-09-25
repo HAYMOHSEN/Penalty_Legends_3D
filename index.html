@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#06140f" />
+    <meta name="description" content="Penalty Legends 3D — a premium penalty shootout game." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/penalty-legends.svg" type="image/svg+xml" />
+    <title>Penalty Legends 3D</title>
+  </head>
+  <body>
+    <main id="app" aria-label="Penalty Legends 3D">
+      <canvas id="game-canvas" aria-label="ملعب لعبة ركلات الجزاء ثلاثي الأبعاد"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <div class="brand" aria-label="Penalty Legends 3D">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <div>
+            <p class="brand-kicker" id="brandKicker">PENALTY LEGENDS</p>
+            <h1 id="brandTitle">أساطير الركلات <em>3D</em></h1>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-button" id="soundToggle" type="button" aria-label="تشغيل أو إيقاف الصوت" title="الصوت">
+            <span id="soundIcon">◖◗</span>
+          </button>
+          <button class="icon-button" id="fullscreenToggle" type="button" aria-label="ملء الشاشة" title="ملء الشاشة">
+            <span aria-hidden="true">⛶</span>
+          </button>
+          <button class="language-button" id="languageToggle" type="button">EN</button>
+        </div>
+      </header>
+
+      <section class="scoreboard" aria-label="لوحة النتائج">
+        <div class="stat-block round-stat">
+          <span class="stat-label" id="roundLabel">الركلة</span>
+          <strong><span id="roundValue">1</span><small id="roundTotal">/ 5</small></strong>
+        </div>
+        <div class="score-divider"></div>
+        <div class="stat-block score-stat">
+          <span class="stat-label" id="scoreLabel">الأهداف</span>
+          <strong id="scoreValue">0</strong>
+        </div>
+        <div class="score-divider"></div>
+        <div class="stat-block best-stat">
+          <span class="stat-label" id="bestLabel">أفضل نتيجة</span>
+          <strong id="bestValue">0</strong>
+        </div>
+        <div class="shots-track" id="shotsTrack" aria-label="نتائج الركلات"></div>
+      </section>
+
+      <aside class="aim-card" aria-label="أدوات التسديد">
+        <div class="aim-card-head">
+          <div>
+            <span class="eyebrow" id="aimEyebrow">دقة التسديد</span>
+            <strong id="aimTitle">وجّه المؤشر نحو المرمى</strong>
+          </div>
+          <span class="target-dot" aria-hidden="true"></span>
+        </div>
+        <p id="aimHint">انقر أو حرّك المؤشر داخل المرمى لاختيار الزاوية.</p>
+        <label class="power-control" for="powerRange">
+          <span id="powerLabel">قوة التسديد</span>
+          <strong id="powerValue">68%</strong>
+        </label>
+        <input id="powerRange" type="range" min="38" max="100" value="68" step="1" aria-label="قوة التسديد" />
+        <button class="shoot-button" id="shootButton" type="button">
+          <span class="shoot-icon" aria-hidden="true">↗</span>
+          <span id="shootText">سدّد الآن</span>
+          <kbd id="shootShortcut">SPACE</kbd>
+        </button>
+      </aside>
+
+      <div class="status-message" id="statusMessage" aria-live="polite"></div>
+
+      <section class="overlay" id="overlay" aria-live="polite">
+        <div class="overlay-card">
+          <div class="overlay-crest" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="overlay-eyebrow" id="overlayEyebrow">بطولة ركلات الجزاء</p>
+          <h2 id="overlayTitle">هل تملك أعصاب البطل؟</h2>
+          <p class="overlay-copy" id="overlayCopy">اختر زاوية التسديد، اضبط قوتك، وتغلّب على الحارس في خمس ركلات حاسمة.</p>
+          <div class="how-to" id="howTo">
+            <div>
+              <span>01</span>
+              <p id="tipAim">حدّد الزاوية داخل المرمى</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p id="tipPower">اضبط القوة المناسبة</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p id="tipShoot">سدّد واصنع الفارق</p>
+            </div>
+          </div>
+          <button class="start-button" id="startButton" type="button">
+            <span id="startText">ابدأ البطولة</span><span aria-hidden="true">←</span>
+          </button>
+          <p class="overlay-footnote" id="overlayFootnote">لعبة أصلية • دون شعارات أو أسماء أندية حقيقية</p>
+        </div>
+      </section>
+
+      <footer class="footer-note" id="footerNote">انقر داخل المرمى للتصويب • SPACE للتسديد</footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
